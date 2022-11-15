@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>{{this.title}}</h1>
+<mat-dialog-content class="mat-typography">
+  <div *ngFor="let ques of values">
+    <label id="example-radio-group-label" >{{ques}}</label><br>
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="myvalue">
+      <mat-radio-button class="example-radio-button" *ngFor="let ans of this.ques" [value]="ques">
+        {{ans}}
+      </mat-radio-button>
+    </mat-radio-group>
+    <div>Value chosen is : {{myvalue}}</div>
+  </div>
+
+  <mat-dialog-actions>
+    <button mat-raised-button class="partecipate-button" color="primary">Confirm</button>
+    <button mat-raised-button class="partecipate-button" color="basic" (click)="close()">Close</button>
+  </mat-dialog-actions>
+</mat-dialog-content>

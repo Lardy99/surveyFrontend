@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+<mat-dialog-content class="mat-typography">
+  <app-login *ngIf="data.component == 'login' " ></app-login>
+  <app-register *ngIf="data.component == 'register' " ></app-register>
+ <!-- <app-survey-list *ngIf="data.component== 'survey'"></app-survey-list> -->
+</mat-dialog-content>
+<!--<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>CHIUDI</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>CONFERMA</button>
+</mat-dialog-actions> -->
+

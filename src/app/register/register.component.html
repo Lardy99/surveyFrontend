@@ -1,0 +1,64 @@
+<div class="full-page">
+  <mat-dialog-content class="mat-typography">
+
+    <mat-card fxLayoutAlign="center center">
+
+      <mat-error class="register-error">{{ this.error }}</mat-error>
+
+      <form [formGroup]="form">
+        <mat-card-content>
+          <mat-form-field class="register-field">
+            <input matInput type="text" placeholder="La tua mail" formControlName="mail" onInput="this.value = this.value.toLowerCase()">
+            <mat-error *ngIf="hasError('mail', 'required')">Email obbligatoria</mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="register-field">
+            <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="La tua password" formControlName="pass"/>
+            <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            <mat-error *ngIf="hasError('pass', 'required')">Password obbligatoria</mat-error>
+          </mat-form-field>
+          <br>
+          <mat-radio-group formControlName="isAdmin">
+            <mat-radio-button value=0>Base User</mat-radio-button>
+            <br>
+            <mat-radio-button value=1>Pro User</mat-radio-button>
+            <mat-error *ngIf="hasError('isAdmin', 'required')">Must choose a user profile</mat-error>
+          </mat-radio-group>
+        </mat-card-content>
+
+        <mat-dialog-actions>
+          <button mat-raised-button class="register-button" color="primary" (click)="register()" [disabled]="!form.valid">CONFERMA</button>
+          <button mat-raised-button class="register-button" color="basic"   (click)="close()">CHIUDI</button>
+        </mat-dialog-actions>
+
+      </form>
+
+    </mat-card>
+  </mat-dialog-content>
+
+
+
+</div>
+<!--<label for="username">Username: </label>
+<input type="text" id="username" name="username"><br><br>
+<label for="password">Password: </label>
+<input type="password" id="password" name="password"><br><br>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close> CLOSE </button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="ngLOGIN"> SIGN IN </button>
+</mat-dialog-actions> -->
+
+
+
+
+<!--<h1>REGISTER</h1>
+<label for="username">Username: </label>
+<input type="text" id="username" name="username"><br><br>
+<label for="password">Password: </label>
+<input type="password" id="password" name="password"><br><br>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close> CLOSE </button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="ngREGISTER"> SIGN UP </button>
+</mat-dialog-actions> -->
+
+
